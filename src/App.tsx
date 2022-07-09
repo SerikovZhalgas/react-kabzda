@@ -1,32 +1,36 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import Accordion from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
+import {Rating, RatingValueType} from "./components/Rating/Rating";
 import OnOff from "./components/OnOff/OnOff";
 import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
-import UncontrolledRating from "./components/UncontrolledRating/UncontrolledRating";
+import UncontrolledRating2 from "./components/UncontrolledRating/UncontrolledRating2";
+import Accordion from "./components/Accordion/Accordion";
+import UncontrolledOnOff from "./components/UncontrolledOnOff/UncontrolledOnOff";
 
 
-function App(props: any) {
-    console.log("App rendering")
+function App() {
+
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+
+    let [switchOn, setSwitchOn] = useState(false)
+
     return (
         <div className={"App"}>
-            <OnOff on={true}/>
-            <OnOff on={false}/>
+            {/*<OnOff on={switchOn} onChange={setSwitchOn}/>*/}
+            {/*<Rating value={ratingValue} onClick={setRatingValue}/>
+            {/*<Accordion
+                titleValue={"Настройки"}
+                collapsed={accordionCollapsed}
+                onChange={()=>setAccordionCollapsed(!accordionCollapsed)}
+            />*/}
 
-            <UncontrolledAccordion titleValue={"Меню"}/>
-            {/*<UncontrolledAccordion titleValue={"Настройки"}/>*/}
+            <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
 
-            <UncontrolledRating />
-
-            {/*<Accordion titleValue={"Меню"} collapsed={true}/>
-            <Accordion titleValue={"Настройки"} collapsed={false}/>
-            <Rating value={0} />
-            <Rating value={1}/>
-            <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>*/}
+            {/*<UncontrolledRating2/>*/}
+            {/*<UncontrolledAccordion titleValue={"Меню"}/>
+            <UncontrolledAccordion titleValue={"Настройки"}/>*/}
         </div>
     );
 }
@@ -35,7 +39,7 @@ type PageTitlePropsType = {
     title: string
 }
 
-function PageTitle(props:PageTitlePropsType) {
+function PageTitle(props: PageTitlePropsType) {
     console.log("PageTitle rendering")
     return <h1>{props.title}</h1>
 }

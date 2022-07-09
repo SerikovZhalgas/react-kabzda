@@ -13,7 +13,7 @@ function UncontrolledAccordion(props:AccordionPropsType) {
     const collapsedButton = () => {
         setCollapsed(!collapsed)
     }
-    console.log("Accordion rendering")
+
         return <div>
             <AccordionTitle title={props.titleValue} collapsedButton={collapsedButton}/>
             { !collapsed && <AccordionBody/>}

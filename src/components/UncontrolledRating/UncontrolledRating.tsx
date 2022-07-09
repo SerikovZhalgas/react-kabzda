@@ -1,11 +1,11 @@
 import React, {useState} from "react";
-import exp from "constants";
+
 
 type RatingPropsType = {
     // value: 0 | 1 | 2 | 3 | 4 | 5
 }
 
-export function UncontrolledRating(props: RatingPropsType) {
+export function UncontrolledRating() {
     console.log("Rating rendering")
 
     const [value, setValue] = useState(0)
@@ -31,10 +31,10 @@ type StarPropsType = {
     starCount: (num:number)=> void
 }
 function Star(props:StarPropsType) {
-    return (
-        props.value ? <span onClick={()=>{props.starCount(props.id)}}><b>star </b></span>
-            : <span onClick={()=>{props.starCount(props.id)}}>star </span>
-    )
+
+    return <span onClick={()=>{props.starCount(props.id)}}>
+        {props.value ? <b>star </b> : 'star '}
+    </span>
 }
 
 export default UncontrolledRating
