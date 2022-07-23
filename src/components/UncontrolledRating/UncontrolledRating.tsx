@@ -3,12 +3,13 @@ import React, {useState} from "react";
 
 type RatingPropsType = {
     // value: 0 | 1 | 2 | 3 | 4 | 5
+
 }
 
 export function UncontrolledRating() {
     console.log("Rating rendering")
 
-    const [value, setValue] = useState(0)
+    const [value, setValue] = useState<RatingPropsType>(0)
 
     const starCount = (num:number) => {
         setValue(num)
@@ -36,5 +37,3 @@ function Star(props:StarPropsType) {
         {props.value ? <b>star </b> : 'star '}
     </span>
 }
-
-export default UncontrolledRating
