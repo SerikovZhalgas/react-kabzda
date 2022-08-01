@@ -6,7 +6,14 @@ import {UncontrolledAccordion} from "./components/UncontrolledAccordion/Uncontro
 import {UncontrolledRating2} from "./components/UncontrolledRating/UncontrolledRating2";
 import {Accordion} from "./components/Accordion/Accordion";
 import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
+import {Select} from "./components/Select/Select";
 
+const arr = [
+    {title: 'aaaa', value: '1'},
+    {title: 'bbbb', value: '2'},
+    {title: 'cccc', value: '3'},
+    {title: 'dddd', value: '4'},
+]
 
 function App() {
 
@@ -15,7 +22,7 @@ function App() {
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
 
     let [switchOn, setSwitchOn] = useState(false)
-
+    const [value, setValue] = useState<string>('1')
     return (
         <div className={"App"}>
             {/*<OnOff on={switchOn} onChange={setSwitchOn}/>*/}
@@ -26,8 +33,10 @@ function App() {
                 onChange={()=>setAccordionCollapsed(!accordionCollapsed)}
             />*/}
 
-            <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
+            {/*<UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}*/}
 
+
+            <Select value={value} onChange={setValue} items={arr}/>
             {/*<UncontrolledRating2/>*/}
             {/*<UncontrolledAccordion titleValue={"Меню"}/>
             <UncontrolledAccordion titleValue={"Настройки"}/>*/}
