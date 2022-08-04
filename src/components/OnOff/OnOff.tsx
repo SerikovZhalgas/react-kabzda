@@ -1,10 +1,12 @@
+import React, {useState} from 'react';
 
 type PropsType = {
     on: boolean
     onChange: (on:boolean) => void
 }
 
-export function OnOff(props: PropsType) {
+export const OnOff = React.memo(OnOffMemo)
+export function OnOffMemo(props: PropsType) {
 
     const onStyle = {
         width: "30px",

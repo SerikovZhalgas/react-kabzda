@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useReducer} from "react";
+import {collapsedButtonAC, reducer} from "./Reducer";
 
 
 type AccordionPropsType = {
@@ -6,17 +7,19 @@ type AccordionPropsType = {
     // collapsed: boolean
 }
 
-export function UncontrolledAccordion(props:AccordionPropsType) {
+export const UncontrolledAccordion = React.memo(UncontrolledAccordionMemo)
+export function UncontrolledAccordionMemo(props:AccordionPropsType) {
 
-    const [collapsed, setCollapsed] = useState(false)
+    //const [collapsed, setCollapsed] = useState(false)
+    const [state, dispatch] = useReducer(reducer, {collapsed: false})
 
     const collapsedButton = () => {
-        setCollapsed(!collapsed)
+        //setCollapsed(!collapsed)
+        dispatch(collapsedButtonAC())
     }
-
         return <div>
             <AccordionTitle title={props.titleValue} collapsedButton={collapsedButton}/>
-            { !collapsed && <AccordionBody/>}
+            { !state.collapsed && <AccordionBody/>}
         </div>
 }
 
@@ -24,14 +27,17 @@ type AccordionTitlePropsType = {
     title: string
     collapsedButton: ()=>void
 }
-function AccordionTitle(props:AccordionTitlePropsType) {
+
+export const AccordionTitle = React.memo(AccordionTitleMemo)
+function AccordionTitleMemo(props:AccordionTitlePropsType) {
     console.log("AccordionTitle rendering")
     return (
         <h3 onClick={()=>{props.collapsedButton()}}>{props.title}</h3>
     )
 }
 
-function AccordionBody() {
+export const AccordionBody = React.memo(AccordionBodyMemo)
+function AccordionBodyMemo() {
     console.log("AccordionBody rendering")
     return (
         <ul>

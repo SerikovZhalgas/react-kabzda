@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {ItemType, Select} from './Select';
-import {action} from "@storybook/addon-actions";
+import {Select} from './Select';
 
 
 export default {
@@ -14,6 +13,7 @@ const arr = [
     {value: '3',title: 'Almaty'},
 ]
 
+/*
 export const select = () => {
     const [value, setValue] = useState<string>('1')
 
@@ -29,3 +29,4 @@ export const withoutValueSelect = () => {
         items={arr}
     />
 }
+*/

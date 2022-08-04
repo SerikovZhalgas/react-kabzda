@@ -36,10 +36,10 @@ function App() {
             {/*<UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}*/}
 
 
-            <Select value={value} onChange={setValue} items={arr}/>
+           {/* <Select value={value} onChange={setValue} items={arr}/>*/}
             {/*<UncontrolledRating2/>*/}
-            {/*<UncontrolledAccordion titleValue={"Меню"}/>
-            <UncontrolledAccordion titleValue={"Настройки"}/>*/}
+            <UncontrolledAccordion titleValue={"Меню"}/>
+            {/*<UncontrolledAccordion titleValue={"Настройки"}/>*/}
         </div>
     );
 }
